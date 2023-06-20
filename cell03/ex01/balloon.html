@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #ballon {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ballon" onclick="handleClick()" onmouseover="handleOver()"></div>
+</body>
+<script>
+    let size = 200
+    let i = 0
+    const color = ["red", "green", "blue"]
+    const handleClick = () => {
+        size += 10;
+        i += 1
+        if (size > 420) {
+            size = 200
+        }
+        if (i > 2) {
+            i = 0
+        }
+        document.getElementById("ballon").style.width = size + "px";
+        document.getElementById("ballon").style.height = size + "px";
+        document.getElementById("ballon").style.backgroundColor = color[i];
+    }
+    const handleOver = () => {
+        size -= 5;
+        if (size < 200) {
+            size = 200
+        }
+        document.getElementById("ballon").style.width = size + "px";
+        document.getElementById("ballon").style.height = size + "px";
+    }
+</script>
+
+</html>
