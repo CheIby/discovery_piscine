@@ -72,3 +72,8 @@
 #contact {
     padding-bottom: 4rem;
 }
+
+.container-fluid{
+    display: flex;
+    justify-content: center;
+}

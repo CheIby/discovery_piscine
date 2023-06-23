@@ -1,156 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="sirasit.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>CheIby</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        html {
+  scroll-behavior: smooth;
+}
 
-        <title>Portfolio website complete</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Sirasit</a>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .parallax {
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("https://cdn.discordapp.com/attachments/1112687715843047529/1121487391853641828/Barw-103.jpg");
+            min-height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .home-title {
+            font-size: 3.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .home-title-color {
+            color: hsl(224, 89%, 60%);
+        }
+
+        .about {
+            padding-top: 3rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .about-head {
+            margin-bottom: 2rem;
+        }
+
+        .about-head h1 {
+            font-weight: 900;
+            color: hsl(224, 56%, 12%);
+        }
+
+        .about-box {
+            max-width: 500px;
+            min-width: 200px;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-img {
+            justify-self: center;
+        }
+
+        .about-img {
+            width: 200px;
+            border-radius: .5rem;
+        }
+
+        .about-body {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .about-box h2 {
+            font-weight: 700;
+        }
+
+        .skill-img {
+            width: 200px;
+            height: 200px;
+            margin: 2rem;
+        }
+
+        .skill-img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer {
+            background-color: hsl(224, 56%, 12%);
+            color: #fff;
+            text-align: center;
+            font-weight: 700;
+            padding: 2rem 0;
+        }
+
+        .footer-title{
+            font-size: 2rem;
+        }
+
+        .footer-social{
+            margin: 2rem;
+        }
+
+        .footer-icon{
+            font-size: 3rem;
+            margin:1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
+        type="button"
+        class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+        <span class="sr-only">Open sidebar</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" fill-rule="evenodd"
+                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+            </path>
+        </svg>
+    </button>
+
+    <aside id="default-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+            <ul class="space-y-2 font-medium">
+                <li>
+                    <a href="#top"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <span class="ml-3">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#about"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <span class="flex-1 ml-3 whitespace-nowrap">About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#skill"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <span class="flex-1 ml-3 whitespace-nowrap">Skill</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <span class="flex-1 ml-3 whitespace-nowrap">Contact</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <span class="flex-1 ml-3 whitespace-nowrap">Index</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="sm:ml-64">
+        <div class="parallax">
+            <div>
+                <h1 class="home-title">Hi,<br>I'am <span class="home-title-color">Sirasit</span><br> Web Designer</h1>
+            </div>
+        </div>
+        <div class="about" id="about">
+            <div class="about-head">
+                <h1>About</h1>
+            </div>
+            <div class="about-body">
+                <div class="about-box about-img">
+                    <img src="https://cdn.discordapp.com/attachments/1112687715843047529/1121488449866825775/64010845.JPG"
+                        alt="">
                 </div>
-
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                        <li class="nav__item"><a href="index.html" class="nav__link">Index</a></li>
-                    </ul>
+                <div class="about-box">
+                    <h2>I'am Sirasit Thiancharoenchai</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum expedita quo
+                        culpa tempora, assumenda, quis fugiat ut voluptates soluta, aut earum nemo recusandae cumque
+                        perferendis! Recusandae alias accusamus atque.</p>
                 </div>
-
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
+            </div>
+        </div>
+        <div class="about" id="skill">
+            <div class="about-head">
+                <h1>Skill</h1>
+            </div>
+            <div class="about-body">
+                <div class="skill-img">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1532/1532556.png" alt="">
                 </div>
-            </nav>
-        </header>
-
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home bd-grid" id="home">
-                <div class="home__data">
-                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Sirasit</span><br> Web Designer</h1>
-
-                    <a href="#contact" class="button">Contact</a>
+                <div class="skill-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CSS.3.svg/1200px-CSS.3.svg.png"
+                        alt="">
                 </div>
-
-                <div class="home__social">
-                    <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                    <a href="" class="home__social-icon"><i class='bx bxl-behance' ></i></a>
-                    <a href="" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                <div class="skill-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
+                        alt="">
                 </div>
-
-                <div class="home__img">
-                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <mask id="mask0" mask-type="alpha">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                        </mask>
-                        <g mask="url(#mask0)">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                            <image class="home__blob-img" x="50" y="100" href="https://cdn.discordapp.com/attachments/1112687715843047529/1121502733313265744/329974709_945977540114218_892628384455069080_n-removebg-preview.png"/>
-                        </g>
-                    </svg>
+                <div class="skill-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1200px-Tailwind_CSS_Logo.svg.png"
+                        alt="">
                 </div>
-            </section>
-
-            <!--===== ABOUT =====-->
-            <section class="about section " id="about">
-                <h2 class="section-title">About</h2>
-
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="https://cdn.discordapp.com/attachments/1112687715843047529/1121488449866825775/64010845.JPG" alt="">
-                    </div>
-                    
-                    <div>
-                        <h2 class="about__subtitle">I'am Sirasit Thiancharoenchai</h2>
-                        <p class="about__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum expedita quo culpa tempora, assumenda, quis fugiat ut voluptates soluta, aut earum nemo recusandae cumque perferendis! Recusandae alias accusamus atque.</p>           
-                    </div>                                   
-                </div>
-            </section>
-
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
-
-                <div class="skills__container bd-grid">          
-                    <div>
-                        <h2 class="skills__subtitle">Profesional Skills</h2>
-                        <p class="skills__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit optio id vero amet, alias architecto consectetur error eum eaque sit.</p>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-html5 skills__icon'></i>
-                                <span class="skills__name">HTML5</span>
-                            </div>
-                            <div class="skills__bar skills__html">
-
-                            </div>
-                            <div>
-                                <span class="skills__percentage">95%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-css3 skills__icon'></i>
-                                <span class="skills__name">CSS3</span>
-                            </div>
-                            <div class="skills__bar skills__css">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-javascript skills__icon' ></i>
-                                <span class="skills__name">JAVASCRIPT</span>
-                            </div>
-                            <div class="skills__bar skills__js">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">65%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxs-paint skills__icon'></i>
-                                <span class="skills__name">UX/UI</span>
-                            </div>
-                            <div class="skills__bar skills__ux">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>              
-                        <img src="https://github.com/bedimcode/portfolio-responsive-complete/blob/master/assets/img/work3.jpg?raw=true" alt="" class="skills__img">
-                    </div>
-                </div>
-            </section>
-            <!--===== FOOTER =====-->
-            <footer class="footer" id="contact">
-            <p class="footer__title">Contact</p>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+            </div>
+        </div>
+        <footer class="footer" id="contact">
+            <p class="footer-title">Contact</p>
+            <div class="footer-social">
+                <a href="#" class="footer-icon"><i class='bx bxl-facebook'></i></a>
+                <a href="#" class="footer-icon"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="footer-icon"><i class='bx bxl-twitter'></i></a>
             </div>
         </footer>
-        </main>
-    </body>
+    </div>
+</body>
+
 </html>
